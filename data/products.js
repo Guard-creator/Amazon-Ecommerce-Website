@@ -26,6 +26,7 @@ class Product {
   image;
   rating;
   priceCents;
+  keywords;
 
     constructor(productDetails) {
       this.id = productDetails.id;
@@ -33,6 +34,7 @@ class Product {
       this.image = productDetails.image;
       this.rating = productDetails.rating;
       this.priceCents = productDetails.priceCents;
+      this.keywords = productDetails.keywords;
     }
 
   getExtraHtml() {
