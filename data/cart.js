@@ -83,6 +83,22 @@ class Cart {
 
   }
 
+  changeDeliveryOption(productId, deliveryOptionId) {
+
+    let matchingItem;
+
+    this.cartItem.forEach(cartItem => {
+      if(cartItem.productId === productId) {
+        matchingItem = cartItem;
+      }
+    })
+
+    matchingItem.deliveryOptionId = deliveryOptionId;
+
+    this.saveIntoStorage();
+
+  }
+
 }
 
 export const cart = new Cart('newCart');
