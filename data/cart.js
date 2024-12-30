@@ -35,7 +35,7 @@ class Cart {
     });
 
     const quantitySel = document.querySelector(`.js-quantity-sel-${productId}`);
-    const quantity = Number(quantitySel.value);
+    const quantity = quantitySel ? Number(quantitySel.value) : 1;
 
     if(matchingItem) {
       matchingItem.quantity += quantity;

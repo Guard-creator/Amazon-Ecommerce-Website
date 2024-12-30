@@ -52,3 +52,22 @@ export function calculateDeliveryDate(deliveryOption) {
   return formatDate;
 
 }
+
+export function calculateOrderDeliveryTime(orderProduct) {
+  // Parse the estimated delivery date
+  const estimatedDeliveryDate = dayjs(orderProduct.estimatedDeliveryTime);
+
+  let remainingDays = estimatedDeliveryDate.diff(dayjs(), 'day'); // Difference in days
+  
+  let deliveryDate = dayjs();
+
+  while (remainingDays >= 0) {
+    deliveryDate = deliveryDate.add(1, 'day');
+    if (!isWeekEnd(deliveryDate)) {
+      remainingDays--;
+    }
+  }
+
+  const formatDate = deliveryDate.format('dddd, MMMM DD');
+  return formatDate;
+}

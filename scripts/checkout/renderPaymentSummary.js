@@ -1,4 +1,5 @@
 import { cart } from "../../data/cart.js";
+import { addOrder } from "../../data/orders.js";
 import { getProducts } from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import { formatCurrency } from "../utility/money.js";''
@@ -76,7 +77,7 @@ export function renderPaymentSummary() {
           return response.json();
         })
 
-        console.log(order);
+        addOrder(order);
 
         window.location.href = 'orders.html';
 
