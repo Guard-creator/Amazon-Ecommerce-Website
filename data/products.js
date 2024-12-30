@@ -19,6 +19,20 @@ export async function loadProducts() {
 
 }
 
+export function getProducts(productId) {
+
+  let matchingItem;
+
+  products.forEach(product => {
+    if(product.id === productId) {
+      matchingItem = product;
+    }
+  })
+
+  return matchingItem;
+
+}
+
 class Product {
 
   id;

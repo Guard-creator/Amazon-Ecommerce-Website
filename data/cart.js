@@ -51,6 +51,38 @@ class Cart {
 
   }
 
+  removeFromCart(productId) {
+
+    const newCart = [];
+
+    this.cartItem.forEach(cartItem => {
+      if(productId !== cartItem.productId) {
+        newCart.push(cartItem);
+      }
+    })
+
+    this.cartItem = newCart;
+
+    this.saveIntoStorage();
+
+  }
+
+  updateQuantityFromCart(productId, newQuantity) {
+
+    let matchingItem;
+
+    this.cartItem.forEach(cartItem => {
+      if(cartItem.productId === productId) {
+        matchingItem = cartItem;
+      }
+    })
+
+    matchingItem.quantity = newQuantity;
+
+    this.saveIntoStorage();
+
+  }
+
 }
 
 export const cart = new Cart('newCart');

@@ -70,6 +70,8 @@ export function renderAmazonProducts() {
             </select>
           </div>
 
+          ${product.getExtraHtml()}
+
           <div class="product-spacer"></div>
 
           <div class="added-to-cart js-added-to-${product.id}">
