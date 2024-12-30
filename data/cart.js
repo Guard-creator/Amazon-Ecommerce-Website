@@ -43,7 +43,7 @@ class Cart {
       this.cartItem.push({
         productId,
         quantity,
-        deliveryOptionID: '1',
+        deliveryOptionId: '1',
       })
     }
 
@@ -97,6 +97,11 @@ class Cart {
 
     this.saveIntoStorage();
 
+  }
+
+  resetCart() {
+    cart.cartItem = [];
+    this.saveIntoStorage();
   }
 
 }
