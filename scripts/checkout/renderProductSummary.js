@@ -19,7 +19,8 @@ export function renderProductSummary() {
     html += `
   
     <div class="cart-item-container 
-      js-cart-item-cont-${productDetails.id}">
+      js-cart-item-cont-${productDetails.id}
+      testing-cart-item-container">
       <div class="delivery-date">
         Delivery date: ${deliveryDate}
       </div>
@@ -29,15 +30,15 @@ export function renderProductSummary() {
           src="${productDetails.image}">
 
         <div class="cart-item-details">
-          <div class="product-name">
+          <div class="product-name testing-name-${productDetails.id}">
             ${productDetails.name}
           </div>
-          <div class="product-price">
+          <div class="product-price testing-priceCents-${productDetails.id}">
             $${formatCurrency(productDetails.priceCents)}
           </div>
           <div class="product-quantity">
             <span>
-              Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+              Quantity: <span class="quantity-label testing-quantity-${productDetails.id}">${cartItem.quantity}</span>
             </span>
             <span class="update-quantity-link link-primary js-update-link"
               data-product-id="${productDetails.id}">
@@ -48,7 +49,10 @@ export function renderProductSummary() {
               data-product-id="${productDetails.id}">
               Save
             </span>
-            <span class="delete-quantity-link link-primary js-del-quantity"
+            <span class="delete-quantity-link 
+            testing-delete-button-${productDetails.id}
+            link-primary
+           js-del-quantity"
               data-product-id="${productDetails.id}">
               Delete
             </span>
@@ -91,7 +95,8 @@ export function renderProductSummary() {
         <div class="delivery-option">
           <input type="radio" ${isChecked}
             class="delivery-option-input
-                  js-delivery-option-input"
+                  js-delivery-option-input
+                  testing-delivery-option-${cartItem.productId}-${option.id}"
             name="delivery-option-${cartItem.productId}"
             data-product-id="${cartItem.productId}"
             data-delivery-option-id="${option.id}">
