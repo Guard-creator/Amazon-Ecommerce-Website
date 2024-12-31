@@ -1,3 +1,5 @@
+import { validDeliveryOption } from "./deliveryOptions.js";
+
 class Cart {
 
   cartItem;
@@ -85,6 +87,10 @@ class Cart {
 
   changeDeliveryOption(productId, deliveryOptionId) {
 
+    if(!validDeliveryOption(deliveryOptionId)) {
+      return;
+    }
+
     let matchingItem;
 
     this.cartItem.forEach(cartItem => {
@@ -92,6 +98,10 @@ class Cart {
         matchingItem = cartItem;
       }
     })
+
+    if(!matchingItem) {
+      return;
+    }
 
     matchingItem.deliveryOptionId = deliveryOptionId;
 

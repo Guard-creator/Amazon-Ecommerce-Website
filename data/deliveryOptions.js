@@ -53,6 +53,20 @@ export function calculateDeliveryDate(deliveryOption) {
 
 }
 
+export function validDeliveryOption(deliveryOptionId) {
+
+  let found = false;
+
+  deliveryOptions.forEach(option => {
+    if(option.id === deliveryOptionId) {
+      found = true;
+    }
+  })
+
+  return found;
+
+}
+
 export function calculateOrderDeliveryTime(orderProduct) {
   // Parse the estimated delivery date
   const estimatedDeliveryDate = dayjs(orderProduct.estimatedDeliveryTime);
