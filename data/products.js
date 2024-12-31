@@ -33,7 +33,7 @@ export function getProducts(productId) {
 
 }
 
-class Product {
+export class Product {
 
   id;
   name;
@@ -65,7 +65,7 @@ class Product {
 
 }
 
-class Clothing extends Product{
+export class Clothing extends Product{
 
   sizeChartLink;
 

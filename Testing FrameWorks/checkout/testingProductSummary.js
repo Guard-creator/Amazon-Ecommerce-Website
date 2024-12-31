@@ -13,7 +13,7 @@ describe('test suite: display order Summary', () => {
 
   beforeEach(() => {
 
-    document.querySelector('.testing-div-order-summary')
+    document.querySelector('.testing-div-product-summary')
       .innerHTML = `
         <div class="js-order-summary"></div>
         <div class="js-checkout-header"></div>
@@ -40,7 +40,7 @@ describe('test suite: display order Summary', () => {
   })
 
   afterEach(() => {
-    document.querySelector('.testing-div-order-summary')
+    document.querySelector('.testing-div-product-summary')
     .innerHTML = '';
   })
 
