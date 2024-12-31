@@ -45,28 +45,26 @@ export function renderAmazonHeader() {
   document.querySelector('.js-amazon-header')
     .innerHTML = html;
 
-  document.querySelector('.js-search-btn')
-    .addEventListener('click', () => {
+  const searchBtn = document.querySelector('.js-search-btn');
+  const searchBar = document.querySelector('.js-search-bar');
 
-      const searchBar = document.querySelector('.js-search-bar');
-      const searchBarValue = searchBar.value;
-      window.location.href = `amazon.html?search=${searchBarValue}`;
-      searchBar.value = '';
-
+    searchBtn.addEventListener('click', () => {
+      handleSearch();
     })
 
-  document.querySelector('.js-search-bar')
-    .addEventListener('keydown', (event) => {
-
+    searchBar.addEventListener('keydown', (event) => {
       if(event.key === 'Enter') {
-
-        const searchBar = document.querySelector('.js-search-bar');
-        const searchBarValue = searchBar.value;
-        window.location.href = `amazon.html?search=${searchBarValue}`;  
-        searchBar.value = '';
-
+        handleSearch();
       }
-
   })
+
+  function handleSearch() {
+    const searchBar = document.querySelector('.js-search-bar');
+    const searchBarValue = searchBar.value.trim(); // Trim whitespace for cleaner input
+    if (searchBarValue) {
+      window.location.href = `amazon.html?search=${searchBarValue}`;
+      searchBar.value = '';
+    }
+  }
 
 }

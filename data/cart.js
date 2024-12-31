@@ -2,7 +2,7 @@ import { validDeliveryOption } from "./deliveryOptions.js";
 
 class Cart {
 
-  cartItem;
+  cartItem; // cart array
   localStorageKey;
 
   constructor(localStorageKey) {
@@ -10,6 +10,7 @@ class Cart {
     this.loadCart();
   }
 
+  // to load the products in the cart
   loadCart() {
     this.cartItem = JSON.parse(localStorage.getItem(this.localStorageKey)) || [{
         productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
@@ -36,6 +37,7 @@ class Cart {
         }
     });
 
+    // to get the value from the quantity selector
     const quantitySel = document.querySelector(`.js-quantity-sel-${productId}`);
     const quantity = quantitySel ? Number(quantitySel.value) : 1;
 
@@ -85,8 +87,10 @@ class Cart {
 
   }
 
+  // change the deliveryoption in the checkout page
   changeDeliveryOption(productId, deliveryOptionId) {
 
+    // to make sure no unknown id pass
     if(!validDeliveryOption(deliveryOptionId)) {
       return;
     }
@@ -99,6 +103,7 @@ class Cart {
       }
     })
 
+    //to make sure empty data dont pass
     if(!matchingItem) {
       return;
     }

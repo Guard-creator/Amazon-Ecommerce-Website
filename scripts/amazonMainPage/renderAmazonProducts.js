@@ -6,10 +6,13 @@ export function renderAmazonProducts() {
 
   let html = '';
 
+  // get the search value from the header and see it in keywords array 
+  // that are in products then load the products from the search
   const url = new URL(window.location.href);
   const search = url.searchParams.get('search')
 
   let filteredProducts = products;
+
 
   if(search) {
 

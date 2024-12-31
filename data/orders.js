@@ -1,10 +1,10 @@
 export const orders = JSON.parse(localStorage.getItem('order')) || [];
 
+// to add a order coming from checkoutpage
 export function addOrder(order) {
 
   orders.unshift(order);
   saveIntoStorage();
-  console.log(orders);
 
 }
 

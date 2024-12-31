@@ -28,11 +28,13 @@ export function getDeliveryOption(deliveryOptionId) {
 
 }
 
+// to skip the weekend 
 function isWeekEnd(dayOfWeek) {
   const weekend = dayOfWeek.format('dddd');
   return weekend === 'Saturday' || weekend === 'Sunday';
 } 
 
+// to calculate deliveryDate 
 export function calculateDeliveryDate(deliveryOption) {
 
   let remainingDays = deliveryOption.deliveryDays;
@@ -53,6 +55,7 @@ export function calculateDeliveryDate(deliveryOption) {
 
 }
 
+// so it only work for the id that are given to deliveryOptions
 export function validDeliveryOption(deliveryOptionId) {
 
   let found = false;
@@ -67,6 +70,7 @@ export function validDeliveryOption(deliveryOptionId) {
 
 }
 
+// this is different from the top function its for order page 
 export function calculateOrderDeliveryTime(orderProduct) {
   // Parse the estimated delivery date
   const estimatedDeliveryDate = dayjs(orderProduct.estimatedDeliveryTime);

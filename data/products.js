@@ -2,6 +2,8 @@ import { formatCurrency } from "../scripts/utility/money.js";
 
 export let products = [];
 
+// loading the product from the backend 
+
 export async function loadProducts() {
 
   const response = await fetch('https://supersimplebackend.dev/products');
@@ -33,6 +35,7 @@ export function getProducts(productId) {
 
 }
 
+// get the product
 export class Product {
 
   id;
@@ -65,6 +68,7 @@ export class Product {
 
 }
 
+// get the chothes type products with sizeChart
 export class Clothing extends Product{
 
   sizeChartLink;
